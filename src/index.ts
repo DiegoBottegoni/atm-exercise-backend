@@ -34,7 +34,7 @@ app.post("/login", (req, res) => {
 
   if (atm.hasExceededAttempts()) {
     return res.status(403).json({
-      message: "Se superaron los 3 intentos. Por favor, hacé POST a /exit para reiniciar los intentos antes de volver a ingresar tu PIN."
+      message: "Se superaron los 3 intentos. Comuníquese con el Banco. Eso diría el cajero, pero podes hacer POST a /exit y reiniciar los intentos clickeando el botón que apareció."
     });
   }
 
