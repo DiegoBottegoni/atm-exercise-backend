@@ -8,7 +8,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = [
+  "https://atm-exercise-frontend.netlify.app",
+  "http://localhost:5173" // para desarrollo local
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  methods: ["GET", "POST", "OPTIONS"],
+  credentials: true, // si en algún momento se usa cookies o auth
+}));
+
 
 // Crear usuario y ATM
 const user = new User("Diego", 1234, 0);
